@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parisvin Situmorang | AI & Automation Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --secondary: #06b6d4;
+            --dark: #0f172a;
+            --light: #f8fafc;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: var(--dark); color: var(--light); overflow-x: hidden; }
+
+        /* 1. THREE.JS / PARTICLES BACKGROUND */
+        #particles-js {
+            position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -1;
+            background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0f172a 100%);
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
+
+        /* Header Section */
+        header { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .profile-img { width: 160px; height: 160px; border-radius: 50%; border: 4px solid var(--primary); margin-bottom: 20px; object-fit: cover; box-shadow: 0 0 25px rgba(79, 70, 229, 0.6); }
+        h1 { font-size: 3.5rem; font-weight: 700; margin-bottom: 10px; background: linear-gradient(to right, #818cf8, #22d3ee); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        p.subtitle { font-size: 1.2rem; color: #94a3b8; margin-bottom: 30px; letter-spacing: 1px; min-height: 30px; }
+
+        /* Section Styling */
+        section { padding: 80px 0; border-top: 1px solid rgba(255,255,255,0.05); }
+        h2 { font-size: 2rem; margin-bottom: 40px; border-left: 5px solid var(--secondary); padding-left: 15px; }
+
+        /* FILTER BUTTONS (React Style Logic) */
+        .filter-menu { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #cbd5e1; padding: 8px 20px; border-radius: 30px; cursor: pointer;
+            transition: 0.3s; font-family: 'Poppins', sans-serif;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary); color: white; border-color: var(--primary);
+            box-shadow: 0 0 15px rgba(79, 70, 229, 0.5);
+        }
+
+        /* Project Grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .card { 
+            background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); 
+            border: 1px solid rgba(255, 255, 255, 0.1); padding: 30px; border-radius: 20px; 
+            transition: all 0.4s ease; transform-origin: center;
+        }
+        .card:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.08); border-color: rgba(255,255,255,0.2); }
+        .card i { font-size: 2rem; color: var(--secondary); margin-bottom: 20px; }
+        .card h3 { margin-bottom: 15px; color: #fff; }
+        .card p { font-size: 0.95rem; color: #cbd5e1; margin-bottom: 20px; }
+
+        /* Tags & Buttons */
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag { background: rgba(6, 182, 212, 0.1); color: #67e8f9; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid rgba(6, 182, 212, 0.2); }
+        
+        .btn { padding: 12px 30px; background: var(--primary); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; transition: 0.3s; display: inline-block; }
+        .btn:hover { background: #4338ca; transform: scale(1.05); }
+
+        /* Certifications */
+        .cert-item { display: flex; align-items: center; gap: 15px; background: rgba(255, 255, 255, 0.02); padding: 20px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); }
+        .cert-item i { color: #fbbf24; }
+
+        footer { text-align: center; padding: 40px; color: #64748b; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <div class="container">
+        <header>
+            <img src="https://via.placeholder.com/160" alt="Parisvin Situmorang" class="profile-img">
+            <h1 class="reveal-text">Parisvin Situmorang</h1>
+            <p class="subtitle" id="typewriter-text"></p>
+            <div style="display: flex; gap: 15px; margin-top: 20px;" class="reveal-btn">
+                <a href="#projects" class="btn">Explore Work</a>
+                <a href="https://github.com/PeculiarCyber" target="_blank" class="btn" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+        </header>
+
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            
+            <div class="filter-menu">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="ai">Artificial Intelligence</button>
+                <button class="filter-btn" data-filter="automation">Automation</button>
+            </div>
+
+            <div class="grid" id="project-gallery">
+                <div class="card project-item" data-category="automation">
+                    <i class="fab fa-instagram"></i>
+                    <h3>IG Automation v5.0</h3>
+                    <p>Otomasi interaksi media sosial dilengkapi Smart Comment Engine dan pengunduh cerita anonim. Mendukung multithreading untuk UI responsif.</p>
+                    <div class="tags"><span class="tag">Python</span><span class="tag">Instagrapi</span><span class="tag">Tkinter</span></div>
+                </div>
+
+                <div class="card project-item" data-category="ai">
+                    <i class="fas fa-brain"></i>
+                    <h3>Market Price Predictor</h3>
+                    <p>Sistem prediksi harga e-commerce menggunakan Machine Learning berbasis tren pasar dan analisis data historis.</p>
+                    <div class="tags"><span class="tag">Scikit-Learn</span><span class="tag">Pandas</span><span class="tag">Random Forest</span></div>
+                </div>
+
+                <div class="card project-item" data-category="ai">
+                    <i class="fas fa-camera"></i>
+                    <h3>Vision Attendance System</h3>
+                    <p>Sistem pencatatan kehadiran otomatis berbasis Computer Vision dengan tingkat akurasi deteksi wajah 98%.</p>
+                    <div class="tags"><span class="tag">OpenCV</span><span class="tag">Deep Learning</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications">
+            <h2>Certifications</h2>
+            <div class="cert-item reveal-card">
+                <i class="fas fa-certificate fa-2x"></i>
+                <div>
+                    <h3 style="color: white; margin-bottom: 5px;">Automation Clinic & Aveva Free Class</h3>
+                    <p style="color: #94a3b8; font-size: 0.9rem;">Basic HMI ET6 & Aveva InTouch<br>
+                    <strong>Anak Teknik Indonesia x Schneider Electric Indonesia</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Parisvin Situmorang. Hosted on GitHub Pages.</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <script>
+        // ----------------------------------------------------
+        // FITUR 1: EFEK MENGETIK OTOMATIS (Vanilla JS)
+        // ----------------------------------------------------
+        const textElement = document.getElementById('typewriter-text');
+        const textToType = "AI & AUTOMATION ENGINEER • SOFTWARE DEVELOPER";
+        let textIndex = 0;
+
+        function typeWriter() {
+            if (textIndex < textToType.length) {
+                textElement.innerHTML += textToType.charAt(textIndex);
+                textIndex++;
+                setTimeout(typeWriter, 60); // Kecepatan ketik 60ms
+            }
+        }
+        window.onload = () => {
+            setTimeout(typeWriter, 500); // Mulai setelah delay 0.5 detik
+        };
+
+        // ----------------------------------------------------
+        // FITUR 2: ANIMASI SCROLL REVEAL 
+        // ----------------------------------------------------
+        ScrollReveal().reveal('.reveal-text', { delay: 200, distance: '30px', origin: 'bottom' });
+        ScrollReveal().reveal('.reveal-btn', { delay: 400, distance: '30px', origin: 'bottom' });
+        ScrollReveal().reveal('h2', { delay: 200, distance: '20px', origin: 'left' });
+        ScrollReveal().reveal('.project-item', { delay: 200, distance: '50px', origin: 'bottom', interval: 150 });
+        ScrollReveal().reveal('.reveal-card', { delay: 200, distance: '50px', origin: 'right' });
+
+        // ----------------------------------------------------
+        // FITUR 3: LOGIKA FILTER PROYEK (Ala React/Vue)
+        // ----------------------------------------------------
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectItems = document.querySelectorAll('.project-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Hapus warna aktif dari tombol lain
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active'); // Aktifkan tombol yang diklik
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                projectItems.forEach(item => {
+                    // Animasi menghilang dulu
+                    item.style.transform = 'scale(0.8)';
+                    item.style.opacity = '0';
+
+                    setTimeout(() => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                            // Animasi muncul kembali
+                            setTimeout(() => {
+                                item.style.transform = 'scale(1)';
+                                item.style.opacity = '1';
+                            }, 50);
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    }, 300); // Tunggu animasi menghilang selesai (300ms)
+                });
+            });
+        });
+
+        // ----------------------------------------------------
+        // FITUR 4: KONFIGURASI PARTICLES.JS (Tampilan Teknologi Jaringan)
+        // ----------------------------------------------------
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#4f46e5" }, // Warna partikel ungu/biru
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5, "random": false },
+                "size": { "value": 3, "random": true },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#06b6d4",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2, // Kecepatan bergerak
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": true, "mode": "grab" }, // Garis terhubung ke kursor
+                    "onclick": { "enable": true, "mode": "push" }, // Tambah partikel saat diklik
+                    "resize": true
+                },
+                "modes": {
+                    "grab": { "distance": 140, "line_linked": { "opacity": 1 } },
+                    "push": { "particles_nb": 4 }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+</body>
+</html>
